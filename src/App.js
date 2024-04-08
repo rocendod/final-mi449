@@ -1,5 +1,44 @@
 import logo from './logo.svg';
 import './App.css';
+import { useState, useEffect } from 'react';
+
+
+function PokeCard() {
+
+  const [getPoke, setPoke] = useState([]);
+
+  async function Pokemon (){
+    useEffect(() => {
+      fetch('https://pokeapi.co/api/v2/pokemon?limit=10')
+        .then((res) => {
+          return res.json();
+        })
+        .then((data) => {
+          console.log(data);
+          setPoke(data);
+        });
+    })
+  }
+
+  return (
+    <>
+    {getPoke.map((pokemon) => (
+      <>
+      <h2>This Pokemon is:</h2>
+      <h3>{pokemon.name}</h3>
+      <a>{pokemon.url}</a>
+      </>
+    ))}
+    </>
+  )
+
+
+}
+
+function TypeFilter () {
+  <>
+  </>
+}
 
 function App() {
   return (
@@ -17,6 +56,10 @@ function App() {
         >
           Learn React with Davi!
         </a>
+
+        <h1>PokeDex</h1>
+        <PokeCard />
+
       </header>
     </div>
   );
