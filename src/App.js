@@ -15,7 +15,7 @@ function App() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          Learn React
+          Learn React with Davi!
         </a>
       </header>
     </div>
@@ -23,3 +23,5 @@ function App() {
 }
 
 export default App;
+
+// Satus 200 Orgin Error - is a secuirty error, server is concern that you are fetching third party data - Sever of third party could be miss configure - know as a cross domain error - -can disable cross-orgin restriction but don't leave it on. 
