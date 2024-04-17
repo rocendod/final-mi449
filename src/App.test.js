@@ -33,3 +33,37 @@ function PokeCard() {
   )
 
 }
+
+<ul className='grid grid-cols-3 gap-8 place-items-center'>
+          {pokemonData.map((pokemon, index) => (
+            <li className="bg-slate-50 flex flex-col rounded-2xl w-80 h-96 justify-center text-lg capitalize font-medium" key={index}>
+            
+              <img className='h-48 w-48 place-self-center' src={pokemon.image} alt={pokemon.name} />
+              <div>
+                <strong className='text-yellow-400'>Name:</strong> {pokemon.name}
+              </div>
+              <div>
+                <strong className='text-yellow-400'>Types:</strong> {pokemon.types.join(', ')}
+              </div>
+              <div>
+                <strong className='text-yellow-400'>Pokemon Stats: </strong>
+                {pokemon.stats.map((stat, index) => (
+                  <span key={index}>{stat.name} - {stat.base_stat} </span>
+                ))}
+              </div>
+      
+            </li>
+          ))}
+        </ul>
+
+return (
+  <>
+    <h3 className='m-5 text-2xl font-bold text-white'>Types:</h3>
+    <div className='grid grid-rows-4 grid-flow-col justify-center gap-4'>
+      {types.map((type) =>
+        <p className="font-bold capitalize hover:bg-red-500 bg-slate-100 rounded-full w-40 h-10 text-xl text-center content-center">{type.name}</p>
+        )}
+    </div>
+  </>
+)
+
