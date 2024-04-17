@@ -1,5 +1,5 @@
 import './App.css';
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect} from 'react';
 
 function TypeFilter () {
 
@@ -20,7 +20,7 @@ function TypeFilter () {
       <h3 className='m-5 text-2xl font-bold'>Type:</h3>
       <div className='grid grid-rows-4 grid-flow-col justify-center gap-4'>
         {types.map((type) =>
-          <p className="font-bold bg-slate-100 rounded-full w-40 h-10 text-xl text-center">{type.name}</p>
+          <p className="font-bold capitalize hover:bg-red-600 bg-slate-100 rounded-full w-40 h-10 text-xl text-center content-center">{type.name}</p>
           )}
       </div>
     </>
@@ -44,7 +44,11 @@ function PokemonList() {
           return {
             name: pokemonData.name,
             image: pokemonData.sprites.front_default,
-            types: pokemonData.types.map(type => type.type.name)
+            types: pokemonData.types.map(type => type.type.name),
+            stats: pokemonData.stats.map(stat => ({
+              name:stat.stat.name,
+              base_stat: stat.base_stat
+            }))
           };
         });
 
@@ -59,44 +63,47 @@ function PokemonList() {
   }, []); // empty dependency array to run effect only once
 
   return (
-    <body className='m-10'>
-      <h1 className='m-10 font-bold text-4xl'>Pokemon</h1>
+    <div className='m-20'>
+      <h1 className='m-10 text-white font-bold text-5xl'>Pokemon</h1>
       <div className=''>
         <ul className='grid grid-cols-3 gap-8 place-items-center'>
           {pokemonData.map((pokemon, index) => (
-            <li className="bg-red-600 flex flex-col rounded-lg w-80 h-96 justify-center" key={index}>
+            <li className="bg-slate-50 flex flex-col rounded-lg w-80 h-96 justify-center text-lg capitalize font-medium" key={index}>
             
-              <img src={pokemon.image} alt={pokemon.name} />
+              <img className='h-48 w-48 place-self-center' src={pokemon.image} alt={pokemon.name} />
               <div>
-                <strong>Name:</strong> {pokemon.name}
+                <strong className='text-yellow-400'>Name:</strong> {pokemon.name}
               </div>
               <div>
-                <strong>Types:</strong> {pokemon.types.join(', ')}
+                <strong className='text-yellow-400'>Types:</strong> {pokemon.types.join(', ')}
+              </div>
+              <div>
+                <strong className='text-yellow-400'>Pokemon Stats: </strong>
+                {pokemon.stats.map((stat, index) => (
+                  <span key={index}>{stat.name} - {stat.base_stat} </span>
+                ))}
               </div>
       
             </li>
           ))}
         </ul>
       </div>
-    </body>
+    </div>
   );
 }
 
 
 function App() {
   return (
-    <div className="App ">
-      <header className="align items-center">
-        <h1 className="bg-red-700 text-5xl font-bold text-white p-5"> Pokedex </h1>
-
-      </header>
-      <body className="App-body bg-white-300 flex flex-col justify-center justify-items-center ">
-        <nav>
-        </nav>
-        <TypeFilter />
-        <PokemonList/>
-      </body>
-    </div>
+      <div className="App">
+        <header className="align items-center">
+          <h1 className="bg-red-700 text-6xl font-bold text-white p-5"> Pokedex </h1>
+        </header>
+        <body className="App-body bg-neutral-950 flex flex-col justify-center justify-items-center ">
+          <TypeFilter />
+          <PokemonList/>
+        </body>
+      </div>
   );
 }
 
