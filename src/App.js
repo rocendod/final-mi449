@@ -118,7 +118,7 @@ function App() {
       <div className="App">
 
         <header className="align items-center">
-          <h1 className="bg-red-500 text-6xl font-bold text-white p-5"> Pokedex </h1>
+          <h1 className="bg-red-500 text-6xl font-bold text-white p-5"> Pokedex Stats</h1>
         </header>
 
         <body className="App-body bg-neutral-800 flex flex-col justify-center justify-items-center ">
