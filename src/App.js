@@ -15,7 +15,7 @@ function SearchBar({ setPokeTerm }) {
     />
   );
 }
-
+///adding a search bar to look for a pokemon and their stats
 function TypeFilter () {
 
   const [types, setType] = useState([]);
@@ -28,7 +28,7 @@ function TypeFilter () {
     }
     Types();
   }, []);
-
+/// retrieving the types from the Pokeapi to display
   return (
     <>
       <h3 className='m-5 text-2xl font-bold text-white'>Types:</h3>
@@ -41,7 +41,7 @@ function TypeFilter () {
   )
 
 }
-
+///Displaying types
 function PokemonList() {
   const [pokemonData, setPokemonData] = useState([]);
   const [searchTerm, setPokeTerm] = useState('');
@@ -76,7 +76,7 @@ function PokemonList() {
 
     fetchData();
   }, []);
-
+/// fetching the data for the name, image, type, and stats of the pokemon, using promises
   const filteredPokemon = pokemonData.filter(pokemon =>
     pokemon.name.toLowerCase().includes(searchTerm.toLowerCase())
   );
@@ -111,6 +111,7 @@ function PokemonList() {
     </div>
   );
 }
+/// displaying all data that was fetch and using filtering what is serched from the data of poke
 
 
 function App() {
@@ -135,6 +136,7 @@ function App() {
       </div>
   );
 }
+/// simple html inside app that formats the componets for the user creating a place where you can search for pokemon stats
 
 export default App;
 
