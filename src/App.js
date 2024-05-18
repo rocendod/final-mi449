@@ -129,7 +129,7 @@ function App() {
 
         <footer className='bg-red-500 text-white font-medium text-lg'>
           <p>Created By: David Rocendo</p>
-          <p>Contact Information: rocendod@mus.edu</p>
+          <p>Contact Information: rocendod@msu.edu</p>
           <p>API Used: <a className="text-yellow-400" href="https://pokeapi.co/">PokeAPI</a> </p>
         </footer>
 
