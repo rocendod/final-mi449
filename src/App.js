@@ -9,13 +9,14 @@ function SearchBar({ setPokeTerm }) {
   return (
     <input
       type="text"
-      placeholder="Search Pokemon..."
+      placeholder=" Search Pokemon..."
       onChange={handleChange}
       className="m-4 p-2 w-80 rounded-full border-2 border-gray-300 focus:border-red-500 focus:outline-none"
     />
   );
 }
 ///adding a search bar to look for a pokemon and their stats
+
 function TypeFilter () {
 
   const [types, setType] = useState([]);
@@ -30,18 +31,19 @@ function TypeFilter () {
   }, []);
 /// retrieving the types from the Pokeapi to display
   return (
-    <>
-      <h3 className='m-5 text-2xl font-bold text-white'>Types:</h3>
-      <div className='grid grid-rows-4 grid-flow-col justify-center gap-4'>
+    <body className='m-20'>
+      <h3 className='m-5 text-4xl font-bold text-white'>Types:</h3>
+      <div className='flex place-items-center grid grid-rows-4 sm:grid-cols-2 md:grid-cols-5 justify-center gap-4'>
         {types.map((type) =>
           <p className="font-bold capitalize hover:bg-red-500 bg-slate-100 rounded-full w-40 h-10 text-xl text-center content-center">{type.name}</p>
           )}
       </div>
-    </>
+    </body>
   )
 
 }
 ///Displaying types
+
 function PokemonList() {
   const [pokemonData, setPokemonData] = useState([]);
   const [searchTerm, setPokeTerm] = useState('');
@@ -82,10 +84,10 @@ function PokemonList() {
   );
 
   return (
-    <div className='m-20'>
+    <div className='m-20 inline-block'>
       <SearchBar setPokeTerm={setPokeTerm} />
-      <h1 className='m-10 text-white font-bold text-5xl'>Pokemon</h1>
-      <ul className='grid grid-cols-3 gap-8 place-items-center'>
+      <h1 className='m-14 text-white font-bold text-6xl underline'>Pokemons</h1>
+      <ul className='grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 flex justify-evenly place-items-center'>
               {filteredPokemon.map((pokemon, index) => (
                 <li 
                 className="bg-slate-50 hover:bg-red-500 flex flex-col rounded-2xl w-80 h-96 justify-center text-lg capitalize font-medium" key={index}>
