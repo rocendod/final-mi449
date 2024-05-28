@@ -51,7 +51,7 @@ function PokemonList() {
   useEffect(() => {
     async function fetchData() {
       try {
-        const response = await fetch('https://pokeapi.co/api/v2/pokemon?limit=120');
+        const response = await fetch('https://pokeapi.co/api/v2/pokemon?limit=100000&offset=0');
         const data = await response.json();
         const pokemons = data.results;
 
@@ -124,7 +124,7 @@ function App() {
           <h1 className="bg-red-500 text-6xl font-bold text-white p-5"> Pokedex Stats</h1>
         </header>
 
-        <body className="App-body bg-neutral-800 flex flex-col justify-center justify-items-center ">
+        <body className="App-body bg-neutral-800 flex flex-col place-items-center ">
           <TypeFilter/>
           <PokemonList/>
         </body>
