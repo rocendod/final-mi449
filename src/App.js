@@ -15,7 +15,7 @@ function SearchBar({ setPokeTerm }) {
     />
   );
 }
-///adding a search bar to look for a pokemon and their stats
+///creating the component & desgin of a search bar to look for a Pokemon and their stats
 
 function TypeFilter () {
 
